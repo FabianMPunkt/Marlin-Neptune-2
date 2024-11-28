@@ -2426,7 +2426,7 @@
 #define HOMING_FEEDRATE_MM_M { (60*60), (60*60), (10*60) }          //FM
 
 // Edit homing feedrates with M210 and MarlinUI menu items
-//#define EDITABLE_HOMING_FEEDRATE
+#define EDITABLE_HOMING_FEEDRATE          //FM
 
 // Validate that endstops are triggered on homing moves
 #define VALIDATE_HOMING_ENDSTOPS
