@@ -553,10 +553,10 @@
  */
 #define HOTEND_IDLE_TIMEOUT
 #if ENABLED(HOTEND_IDLE_TIMEOUT)
-  #define HOTEND_IDLE_TIMEOUT_SEC (2*60)    // (seconds) Time without extruder movement to trigger protection
+  #define HOTEND_IDLE_TIMEOUT_SEC (5*60)    // (seconds) Time without extruder movement to trigger protection          //FM
   #define HOTEND_IDLE_MIN_TRIGGER   180     // (°C) Minimum temperature to enable hotend protection
-  #define HOTEND_IDLE_NOZZLE_TARGET   0     // (°C) Safe temperature for the nozzle after timeout
-  #define HOTEND_IDLE_BED_TARGET      0     // (°C) Safe temperature for the bed after timeout
+  #define HOTEND_IDLE_NOZZLE_TARGET 170     // (°C) Safe temperature for the nozzle after timeout          //FM
+  #define HOTEND_IDLE_BED_TARGET     50     // (°C) Safe temperature for the bed after timeout          //FM
 #endif
 
 // @section temperature
@@ -2343,9 +2343,9 @@
 #define LIN_ADVANCE
 #if ENABLED(LIN_ADVANCE)
   #if ENABLED(DISTINCT_E_FACTORS)
-    #define ADVANCE_K { 0.3 }     // (mm) Compression length per 1mm/s extruder speed, per extruder          //FM tuned for neptune 2S dircet drive
+    #define ADVANCE_K { 0.1 }     // (mm) Compression length per 1mm/s extruder speed, per extruder          //FM tuned for neptune 2S dircet drive
   #else
-    #define ADVANCE_K 0.3         // (mm) Compression length applying to all extruders          //FM tuned for neptune 2S dircet drive
+    #define ADVANCE_K 0.1         // (mm) Compression length applying to all extruders          //FM tuned for neptune 2S dircet drive
   #endif
   //#define ADVANCE_K_EXTRA       // Add a second linear advance constant, configurable with M900 L.
   //#define LA_DEBUG              // Print debug information to serial during operation. Disable for production use.

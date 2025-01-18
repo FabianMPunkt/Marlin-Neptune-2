@@ -768,11 +768,11 @@
   #define MPC_INCLUDE_FAN                             // Model the fan speed?
 
   // Measured physical constants from M306
-  #define MPC_BLOCK_HEAT_CAPACITY { 11.86f }           // (J/K) Heat block heat capacities.          //FM tuned for Neptune 2 Stock Hotend without silicone
-  #define MPC_SENSOR_RESPONSIVENESS { 0.1550f }         // (K/s per ∆K) Rate of change of sensor temperature from heat block.          //FM
-  #define MPC_AMBIENT_XFER_COEFF { 0.0830f }           // (W/K) Heat transfer coefficients from heat block to room air with fan off.          //FM
+  #define MPC_BLOCK_HEAT_CAPACITY { 6.6f }           // (J/K) Heat block heat capacities.          //FM tuned for 40" Revo Hotend
+  #define MPC_SENSOR_RESPONSIVENESS { 0.413f }         // (K/s per ∆K) Rate of change of sensor temperature from heat block.          //FM
+  #define MPC_AMBIENT_XFER_COEFF { 0.046f }           // (W/K) Heat transfer coefficients from heat block to room air with fan off.          //FM
   #if ENABLED(MPC_INCLUDE_FAN)
-    #define MPC_AMBIENT_XFER_COEFF_FAN255 { 0.1733f }  // (W/K) Heat transfer coefficients from heat block to room air with fan on full.          //FM
+    #define MPC_AMBIENT_XFER_COEFF_FAN255 { 0.091f }  // (W/K) Heat transfer coefficients from heat block to room air with fan on full.          //FM
   #endif
 
   // For one fan and multiple hotends MPC needs to know how to apply the fan cooling effect.
@@ -1339,7 +1339,7 @@
   #ifdef IS_2D
     #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 95, 95 }
   #else
-    #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 140 }          //FM
+    #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 145 }          //FM
   #endif
 #endif
 
@@ -1355,14 +1355,14 @@
  *                                      X, Y, Z [, I [, J [, K...]]], E0 [, E1[, E2...]]
  */
 #ifdef IS_2D
-  #define DEFAULT_MAX_FEEDRATE          { 350, 350, 40, 70, 70 }          //FM
+  #define DEFAULT_MAX_FEEDRATE          { 350, 350, 40, 100, 100 }          //FM
 #else
-  #define DEFAULT_MAX_FEEDRATE          { 350, 350, 40, 70 }          //FM
+  #define DEFAULT_MAX_FEEDRATE          { 350, 350, 40, 100 }          //FM
 #endif
 
 #define LIMITED_MAX_FR_EDITING        // Limit edit via M203 or LCD to DEFAULT_MAX_FEEDRATE * 2          //FM
 #if ENABLED(LIMITED_MAX_FR_EDITING)
-  #define MAX_FEEDRATE_EDIT_VALUES    { 500, 500, 50, 100 } // ...or, set your own edit limits          //FM
+  #define MAX_FEEDRATE_EDIT_VALUES    { 500, 500, 50, 150 } // ...or, set your own edit limits          //FM
 #endif
 
 /**
