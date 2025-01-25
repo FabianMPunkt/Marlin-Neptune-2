@@ -46,7 +46,7 @@
  */
 #define IS_BOARD_1_3            // Enable for board v1.3          //FM
 //#define IS_2D                   // Enable for the Neptune 2d (Dual extruder)
-//#define IS_BMG                  // Enable for installed BMG-like extruder
+#define IS_LGX                  // Enable for installed LGX-like extruder          //FM
 //#define USB_MOD                 // Enable if you've applied the Native USB mods (see README.md)
 #define FIRMWARE_BIN elegoo.bin   // Override the firmware binary output filename
 
@@ -1333,11 +1333,11 @@
  *                                      X, Y, Z [, I [, J [, K...]]], E0 [, E1[, E2...]]
  */
 
-#ifdef IS_BMG
+#ifdef IS_LGX
   #ifdef IS_2D
     #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 415, 415 }
   #else
-    #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 415 }
+    #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 562 }          //FM
   #endif
 #else
   #ifdef IS_2D
@@ -1886,7 +1886,12 @@
 // @section extruder
 
 // For direct drive extruder v9 set to true, for geared extruder set to false.
-#define INVERT_E0_DIR false
+#ifdef IS_LGX          //FM
+  #define INVERT_E0_DIR true          //FM
+#else          //FM
+  #define INVERT_E0_DIR false          //FM
+#endif          //FM
+
 #define INVERT_E1_DIR false
 #define INVERT_E2_DIR false
 #define INVERT_E3_DIR false
@@ -2026,7 +2031,7 @@
  */
 //#define FILAMENT_RUNOUT_SENSOR          //FM
 #if ENABLED(FILAMENT_RUNOUT_SENSOR)
-  #ifdef IS_BMG
+  #ifdef IS_LGX
     #define FIL_RUNOUT_ENABLED_DEFAULT false // Enable the sensor on startup. Override with M412 followed by M500.
   #else
     #define FIL_RUNOUT_ENABLED_DEFAULT true
