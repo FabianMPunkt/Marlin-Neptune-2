@@ -30,9 +30,6 @@
 
 #include "dwin.h"
 
-//#define USE_STRING_HEADINGS
-//#define USE_STRING_TITLES
-
 #if DISABLED(PROBE_MANUALLY) && ANY(AUTO_BED_LEVELING_BILINEAR, AUTO_BED_LEVELING_LINEAR, AUTO_BED_LEVELING_3POINT)
   #define HAS_ONESTEP_LEVELING 1
 #endif
@@ -3679,7 +3676,7 @@ void hmiAdvSet() {
     dwinUpdateLCD();
   }
 
-  void hmiHomeOffN(const AxisEnum axis, float &posScaled, const_float_t lo, const_float_t hi) {
+  void hmiHomeOffN(const AxisEnum axis, float &posScaled, const float lo, const float hi) {
     EncoderState encoder_diffState = encoderReceiveAnalyze();
     if (encoder_diffState == ENCODER_DIFF_NO) return;
 
