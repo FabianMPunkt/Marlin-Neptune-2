@@ -1509,7 +1509,7 @@
 // @section lcd
 
 #if HAS_MANUAL_MOVE_MENU
-  #define MANUAL_FEEDRATE { 60*60, 60*60, 10*60, 5*60 } // (mm/min) Feedrates for manual moves along X, Y, Z, E from panel          //FM
+  #define MANUAL_FEEDRATE { 150*60, 150*60, 10*60, 5*60 } // (mm/min) Feedrates for manual moves along X, Y, Z, E from panel          //FM
   #define FINE_MANUAL_MOVE 0.025    // (mm) Smallest manual move (< 0.1mm) applying to Z on most machines
   #if IS_ULTIPANEL
     #define MANUAL_E_MOVES_RELATIVE // Display extruder move distance rather than "position"
