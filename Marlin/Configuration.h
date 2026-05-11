@@ -794,7 +794,7 @@
   #define MPC_INCLUDE_FAN                             // Model the fan speed?
 
   // Measured physical constants from M306
-  #define MPC_BLOCK_HEAT_CAPACITY { 6.6f }           // (J/K) Heat block heat capacities.          //FM tuned for 40" Revo Hotend
+  #define MPC_BLOCK_HEAT_CAPACITY { 6.6f }           // (J/K) Heat block heat capacities.          //FM tuned for 40W Revo Hotend
   #define MPC_SENSOR_RESPONSIVENESS { 0.413f }         // (K/s per ∆K) Rate of change of sensor temperature from heat block.          //FM
   #define MPC_AMBIENT_XFER_COEFF { 0.046f }           // (W/K) Heat transfer coefficients from heat block to room air with fan off.          //FM
   #if ENABLED(MPC_INCLUDE_FAN)
@@ -1415,11 +1415,11 @@
  * Override with M201
  *                                      X, Y, Z [, I [, J [, K...]]], E0 [, E1[, E2...]]
  */
-#define DEFAULT_MAX_ACCELERATION      { 2000, 2000, 100, 10000 }          //FM
+#define DEFAULT_MAX_ACCELERATION      { 2000, 2000, 100, 4000 }          //FM
 
 #define LIMITED_MAX_ACCEL_EDITING     // Limit edit via M201 or LCD to DEFAULT_MAX_ACCELERATION * 2          //FM
 #if ENABLED(LIMITED_MAX_ACCEL_EDITING)
-  #define MAX_ACCEL_EDIT_VALUES       { 4000, 4000, 200, 20000 } // ...or, set your own edit limits          //FM
+  #define MAX_ACCEL_EDIT_VALUES       { 4000, 4000, 200, 5000 } // ...or, set your own edit limits          //FM
 #endif
 
 /**
@@ -1760,7 +1760,7 @@
  *     |    [-]    |
  *     O-- FRONT --+
  */
-#define NOZZLE_TO_PROBE_OFFSET { -38 , 0, -1 } // (mm) X, Y, Z distance from Nozzle tip to Probe trigger-point          //FM
+#define NOZZLE_TO_PROBE_OFFSET { -38 , 0, -1.5 } // (mm) X, Y, Z distance from Nozzle tip to Probe trigger-point          //FM
 
 // Enable and set to use a specific tool for probing. Disable to allow any tool.
 #define PROBING_TOOL 0
